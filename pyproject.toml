@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "bierboerse"
+version = "0.1.0"
+description = "A GUI application for a beer stock market at a bar"
+authors = ["Denis <yum-yab-dev@pm.me>"]
+license = "GPL-3.0"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+PyQt6 = "^6.4.2"
+
+[tool.poetry.group.dev.dependencies]
+black = "^23.1.0"
+pytest = "^7.2.2"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
