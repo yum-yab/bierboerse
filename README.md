@@ -7,11 +7,10 @@ A GUI application for a simulated stock market for selling stuff.
 [Install poetry](https://python-poetry.org/docs/) and run the following (on linux):
 
 ```bash
+git clone https://gitea.v122.de/denis/bierboerse.git && cd bierboerse
 poetry install &&
-poetry shell &&
-python bierboerse/bierboerse.py
+poetry run python bierboerse/bierboerse.py
 ```
-
 
 ## Planned features
 
