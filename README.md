@@ -28,4 +28,3 @@ python bierboerse/bierboerse.py
 ### Nice to have
 
 * [ ] Actually implement multiple visual representations (one big plot vs. one for each stock)
-* 
