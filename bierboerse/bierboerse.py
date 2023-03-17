@@ -3,16 +3,22 @@ from PyQt6.QtWidgets import QApplication, QMainWindow, QPushButton, QWidget
 import sys
 
 
-from gui.MainWindow import BierboerseMainWindow 
+from gui.MainWindow import BierboerseMainWindow  # type: ignore
 
-app = QApplication(sys.argv)
 
-main_window = BierboerseMainWindow()
-main_window.show()
+def main():
+    app = QApplication(sys.argv)
 
-# window = QPushButton("Push me!")
-# 
-# # windows are hidden by default
-# window.show()
+    main_window = BierboerseMainWindow()
+    main_window.show()
 
-app.exec()
+    # window = QPushButton("Push me!")
+    #
+    # # windows are hidden by default
+    # window.show()
+
+    app.exec()
+
+
+if __name__ == "__main__":
+    main()

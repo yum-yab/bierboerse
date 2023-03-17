@@ -12,16 +12,22 @@ poetry install &&
 poetry run python bierboerse/bierboerse.py
 ```
 
+## Resources
+
+1. Genral introduction to `PyQt`: [Link](https://www.pythonguis.com/tutorials/pyqt6-creating-your-first-window/)
+2. Reference for `pyqtgraphs`: [Link](https://pyqtgraph.readthedocs.io/en/latest/)
+
 ## Planned features
 
 ### Core
 
 * [ ] Make any number of stocks (beers) possible, in the range of 1-10
-* [ ] Make it repsonsible to make it look good on every screen size
+* [ ] Make it responsible to make it look good on every screen size
 * [ ] Seperate the data from the visual representation to allow multiple configurations 
-* [ ] Make it error prone, so allow undoing multiple actions and save the state in certain intervals for backup
+* [ ] Allow undoing multiple actions 
+* [ ] save the state in certain intervals for backup
 * [ ] make it configurable on the fly without restarting (removing/changing/adding a stock)
-* [ ] Come up with same clever change functions with a bought stock
+* [ ] Come up with some clever change functions with a bought stock
 
 
 ### Nice to have
