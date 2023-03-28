@@ -28,7 +28,5 @@ class BierboerseMainWindow(QMainWindow):
 
         layout.addWidget(plot_widget)
 
-
-        root_widget.show()
         
         self.setCentralWidget(root_widget)

@@ -18,7 +18,7 @@ from PyQt6.QtWidgets import QGridLayout, QWidget
 class PlotWindow(QWidget):
 
     def __init__(self, market: Market, plot_representation: PlotRepresentation) -> None:
-        super().__init__()
+        super(PlotWindow, self).__init__()
 
 
         self.market = market
@@ -26,7 +26,6 @@ class PlotWindow(QWidget):
         
         layout = QGridLayout()
 
-        self.setLayout(layout)
 
         
         if plot_representation == PlotRepresentation.ALL_IN_ONE:
@@ -38,6 +37,8 @@ class PlotWindow(QWidget):
                 pen = pg.mkPen(color=stock.color)
 
                 plot_widget.plot(stock.get_data(), pen=pen)
+            
+            layout.addWidget(plot_widget)
         
         elif plot_representation == PlotRepresentation.ONE_FOR_EACH:
             
@@ -46,6 +47,8 @@ class PlotWindow(QWidget):
             
             pass
 
+
+        self.setLayout(layout)
         
         
 
