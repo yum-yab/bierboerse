@@ -2,20 +2,33 @@ import sys
 import pyqtgraph as pg  # type: ignore
 
 
-from PyQt6.QtWidgets import QApplication, QMainWindow, QPushButton
+from PyQt6.QtWidgets import QApplication, QMainWindow, QPushButton, QWidget, QHBoxLayout
+
+from bierboerse.boerse.market import Market
+from bierboerse.gui.stock_plots import PlotRepresentation, PlotWindow
 
 
 class BierboerseMainWindow(QMainWindow):
-    def __init__(self) -> None:
+    def __init__(self, market: Market) -> None:
         super().__init__()
+
+        self.market = market
 
         self.setWindowTitle("Bierbörse!")
 
         # button = QPushButton("Press for getting started!")
 
-        data_arr = [0.2, 0.3, 0.25, 0.4, 0.5, 0.7]
+        root_widget = QWidget()
 
-        plot_widget = pg.PlotWidget()
+        layout = QHBoxLayout()
 
-        plot_widget.plot(data_arr)
-        self.setCentralWidget(plot_widget)
+        root_widget.setLayout(layout)
+
+        plot_widget = PlotWindow(market, PlotRepresentation.ALL_IN_ONE)
+
+        layout.addWidget(plot_widget)
+
+
+        root_widget.show()
+        
+        self.setCentralWidget(root_widget)

@@ -1,4 +1,6 @@
 from decimal import Decimal
+
+from PyQt6.QtGui import QColor
 from bierboerse.utils.FixedLengthQueue import CircularQueue
 
 from typing import List, Optional
@@ -8,11 +10,13 @@ class Stock:
     """A stock represents one traced thing"""
 
     def __init__(
-        self, name: str, history_length: int, *initial_values: Decimal
+            self, name: str, color: QColor, history_length: int, *initial_values: Decimal
     ) -> None:
         self.__queue = CircularQueue(history_length, *initial_values)
 
         self.name = name
+
+        self.color = color
 
     def __eq__(self, __value: object) -> bool:
         if isinstance(__value, Stock):
@@ -44,3 +48,7 @@ class Stock:
             self.__queue.put(last + value)
         else:
             self.__queue.put(value)
+
+    def get_data(self) -> List[float]:
+
+        return [float(i) for i in self.__queue.get_content()]

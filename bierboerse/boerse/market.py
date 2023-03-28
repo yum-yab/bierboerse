@@ -12,13 +12,13 @@ class Market:
         stock_updater: StockUpdater,
         reverse_order: bool = True,
     ) -> None:
-        self.__stocks = stocks
+        self.stocks = stocks
         self.stock_updater = stock_updater
-        self.__reverse_ordering = reverse_order
+        self.reverse_ordering = reverse_order
 
     def __update_stock_order(self) -> None:
         """Sorts the stock order in place by current price"""
-        self.__stocks.sort(reverse=self.__reverse_ordering)
+        self.stocks.sort(reverse=self.reverse_ordering)
 
     def buy(self, bought_stock: Stock) -> None:
-        self.stock_updater.update(bought_stock, self.__stocks)
+        self.stock_updater.update(bought_stock, self.stocks)
