@@ -28,7 +28,7 @@ def main():
     
 
     
-    market = Market(stocks, SimpleUpdate(Decimal(0.2), Decimal(0.3)))
+    market = Market(stocks, SimpleUpdate(Decimal(0.7), Decimal(0.3)))
 
     main_window = BierboerseMainWindow(market)
     main_window.show()
