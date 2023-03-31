@@ -7,7 +7,7 @@ from PyQt6.QtWidgets import QApplication, QMainWindow, QPushButton, QWidget, QHB
 
 from bierboerse.boerse.market import Market
 from bierboerse.gui.stock_list import StockListWidget
-from bierboerse.gui.stock_plots import PlotRepresentation, PlotWindow
+from bierboerse.gui.stock_plots import OneForEachPlotWidget
 
 
 class BierboerseMainWindow(QMainWindow):
@@ -29,7 +29,7 @@ class BierboerseMainWindow(QMainWindow):
 
         root_widget.setLayout(layout)
 
-        self.plot_widget = PlotWindow(market, PlotRepresentation.ALL_IN_ONE)
+        self.plot_widget = OneForEachPlotWidget(market)
 
         layout.addWidget(self.plot_widget)
 

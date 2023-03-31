@@ -1,5 +1,5 @@
 from PyQt6.QtGui import QColor
-from PyQt6.QtWidgets import QApplication, QMainWindow, QPushButton, QWidget
+from PyQt6.QtWidgets import QApplication
 
 import sys
 from bierboerse.boerse.market import Market
