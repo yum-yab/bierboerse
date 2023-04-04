@@ -13,7 +13,7 @@ class StockListWidget(QWidget):
 
         layout = QVBoxLayout()
 
-
+        #self.setStyleSheet("border: 1px solid red")
         self.market = market
 
         for stock in self.market.stocks:
@@ -21,3 +21,11 @@ class StockListWidget(QWidget):
             layout.addWidget(StockWidget(stock))
 
         self.setLayout(layout)
+
+
+    def update_list(self) -> None:
+
+        for widget in self.children():
+
+            if isinstance(widget, StockWidget):
+                widget.update_stock()

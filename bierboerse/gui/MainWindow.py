@@ -30,10 +30,12 @@ class BierboerseMainWindow(QMainWindow):
         root_widget.setLayout(layout)
 
         self.plot_widget = OneForEachPlotWidget(market)
+        
+        self.stock_list_widget = StockListWidget(self.market)
 
         layout.addWidget(self.plot_widget)
 
-        layout.addWidget(StockListWidget(self.market))
+        layout.addWidget(self.stock_list_widget)
         layout.addWidget(button)
         
         self.setCentralWidget(root_widget)

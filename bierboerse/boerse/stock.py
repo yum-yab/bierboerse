@@ -5,6 +5,7 @@ from bierboerse.utils.FixedLengthQueue import CircularQueue
 
 from typing import List, Optional
 
+import uuid
 
 class Stock:
     """A stock represents one traced thing"""
@@ -18,11 +19,17 @@ class Stock:
 
         self.color = color
 
+        self.__unique_id: str = uuid.uuid4().hex
+
     def __eq__(self, __value: object) -> bool:
         if isinstance(__value, Stock):
             return self.name == __value.name
         else:
             return False
+    
+    def __hash__(self) -> int:
+        return hash(self.__unique_id)
+
 
     def __lt__(self, other: object) -> bool:
         if isinstance(other, Stock):
