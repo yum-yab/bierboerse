@@ -1,4 +1,4 @@
-from PyQt6.QtWidgets import QLabel, QWidget, QHBoxLayout, QVBoxLayout, QFrame
+from PyQt6.QtWidgets import QLabel, QHBoxLayout, QFrame
 
 from bierboerse.boerse.stock import Stock
 from bierboerse.gui.color_box import ColorBox
@@ -13,7 +13,7 @@ class StockWidget(QFrame):
 
         super(StockWidget, self).__init__()
         
-        self.__setup_style()
+        self.__setup_style_sheet()
 
         self.stock = stock
 
@@ -35,10 +35,10 @@ class StockWidget(QFrame):
         self.setLayout(root_layout)
 
 
-    def __setup_style(self) -> None:
+    def __setup_style_sheet(self) -> None:
 
 
-        self.setStyleSheet("StockWidget { background-color: rgb(255,0,0); margin:5px; border:1px solid rgb(0, 255, 0); }")
+        self.setStyleSheet("StockWidget { margin:5px; border:1px solid black; }")
 
     def update_stock(self) -> None:
 

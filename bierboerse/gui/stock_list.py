@@ -26,6 +26,5 @@ class StockListWidget(QWidget):
     def update_list(self) -> None:
 
         for widget in self.children():
-
             if isinstance(widget, StockWidget):
                 widget.update_stock()

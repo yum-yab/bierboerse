@@ -47,3 +47,5 @@ class BierboerseMainWindow(QMainWindow):
         self.market.buy(updated_stock)
 
         self.plot_widget.update_plot()
+
+        self.stock_list_widget.update_list()
