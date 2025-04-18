@@ -4,10 +4,7 @@ from bierboerse.boerse.market import Market
 from bierboerse.gui.stock_widget import StockWidget
 
 
-
-
 class StockListWidget(QWidget):
-
     def __init__(self, market: Market) -> None:
         super().__init__()
 
@@ -17,7 +14,6 @@ class StockListWidget(QWidget):
         self.market = market
 
         for stock in self.market.stocks:
-
             layout.addWidget(StockWidget(stock))
 
         self.setLayout(layout)

@@ -19,7 +19,7 @@ class BierboerseMainWindow(QMainWindow):
         self.setWindowTitle("Bierbörse!")
 
         # button = QPushButton("Press for getting started!")
-        
+
         button = QPushButton("Buy Random!")
         button.clicked.connect(self.buy_random)
 
@@ -37,11 +37,10 @@ class BierboerseMainWindow(QMainWindow):
 
         layout.addWidget(self.stock_list_widget)
         layout.addWidget(button)
-        
+
         self.setCentralWidget(root_widget)
 
     def buy_random(self):
-
         updated_stock = random.choice(self.market.stocks)
 
         self.market.buy(updated_stock)

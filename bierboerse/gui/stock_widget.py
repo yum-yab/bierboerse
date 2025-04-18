@@ -9,8 +9,8 @@ from bierboerse.gui.color_box import ColorBox
 class StockWidget(QFrame):
 
    
+class StockWidget(QWidget):
     def __init__(self, stock: Stock) -> None:
-
         super(StockWidget, self).__init__()
         
         self.__setup_style_sheet()
@@ -18,7 +18,6 @@ class StockWidget(QFrame):
         self.stock = stock
 
         root_layout = QHBoxLayout()
-
 
         name_layout = QHBoxLayout()
 

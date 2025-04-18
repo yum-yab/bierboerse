@@ -3,7 +3,7 @@ from decimal import Decimal
 from PyQt6.QtGui import QColor
 from bierboerse.utils.FixedLengthQueue import CircularQueue
 
-from typing import List, Optional
+from typing import List
 
 import uuid
 
@@ -11,7 +11,7 @@ class Stock:
     """A stock represents one traced thing"""
 
     def __init__(
-            self, name: str, color: QColor, history_length: int, *initial_values: Decimal
+        self, name: str, color: QColor, history_length: int, *initial_values: Decimal
     ) -> None:
         self.__queue = CircularQueue(history_length, *initial_values)
 
@@ -23,7 +23,7 @@ class Stock:
 
     def __eq__(self, __value: object) -> bool:
         if isinstance(__value, Stock):
-            return self.name == __value.name
+            return self.name == __value.name and self.color == __value.color
         else:
             return False
     
@@ -36,6 +36,11 @@ class Stock:
             return self.get_current_price() < other.get_current_price()
         else:
             return True
+    
+
+    def __hash__(self) -> int:
+        return hash((self.name, self.color))
+
 
     def get_current_price(self) -> Decimal:
         """Returns the current price of the stock as Decimal"""
@@ -57,5 +62,4 @@ class Stock:
             self.__queue.put(value)
 
     def get_data(self) -> List[float]:
-
         return [float(i) for i in self.__queue.get_content()]
